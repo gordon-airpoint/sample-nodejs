@@ -18,11 +18,15 @@ server.on('connection', (socket) => {
 
     // Add a 'close' event handler to this instance of socket 
     socket.on('close', (data) => { 
-        console.log(`connection closed: ${clientAddress}`); 
+        console.log(`connection closed: ${clientAddress}, ${data}`); 
     });
 
     // Add a 'error' event handler to this instance of socket 
     socket.on('error', (err) => { 
         console.log(`Error occurred in ${clientAddress}: ${err.message}`); 
     });
+})
+
+server.on('drop', (data)=> {
+    console.log(`dropped connection:`, data); 
 })
