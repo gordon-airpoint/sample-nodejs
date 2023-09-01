@@ -1,10 +1,10 @@
 import * as net from 'net';
 
 const server = net.createServer(); 
-const host = "127.0.0.1";
+const host = "0.0.0.0";
 
 server.listen(14001, host, () => { 
-    console.log(`TCP Client listening on ${host}:14001`); 
+    console.log(`TCP Server listening on ${host}:14001`); 
 }); 
 
 server.on('connection', (socket) => { 
